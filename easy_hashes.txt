@@ -1,0 +1,25 @@
+# Easy Hash Passwords for Testing
+# Format: hash,original_password,hash_type,description
+
+# Single Character Passwords (Very Fast to Crack)
+0cc175b9c0f1b6a831c399e269772661,a,md5,Single letter 'a' in MD5
+92eb5ffee6ae2fec3ad71c777531578f,b,md5,Single letter 'b' in MD5
+4a8a08f09d37b73795649038408b5f33,1,md5,Single digit '1' in MD5
+c81e728d9d4c2f636f067f89cc14862c,2,md5,Single digit '2' in MD5
+
+# Two Character Passwords (Fast to Crack)
+5f4dcc3b5aa765d61d8327deb882cf99,password,md5,Common password 'password' in MD5
+098f6bcd4621d373cade4e832627b4f6,test,md5,Simple word 'test' in MD5
+81dc9bdb52d04dc20036dbd8313ed055,1234,md5,Simple '1234' in MD5
+e10adc3949ba59abbe56e057f20f883e,123456,md5,Common password '123456' in MD5
+
+# SHA1 Easy Hashes
+86f7e437faa5a7fce15d1ddcb9eaeaea377667b8,a,sha1,Single letter 'a' in SHA1
+da4b9237bacccdf19c0760cab7aec4a8359010b0,1,sha1,Single digit '1' in SHA1
+356a192b7913b04c54574d18c28d46e6395428ab,1,sha1,Single digit '1' in SHA1
+5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8,password,sha1,Common password 'password' in SHA1
+
+# SHA256 Easy Hashes
+ca978112ca1bbdcafac231b39a23dc4da786eff8147c4e72b9807785afee48bb,a,sha256,Single letter 'a' in SHA256
+6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b,1,sha256,Single digit '1' in SHA256
+8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92,123456,sha256,Common password '123456' in SHA256 

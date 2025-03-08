@@ -106,7 +106,7 @@ class PasswordCracker:
         self.show_password_var = tk.BooleanVar()
         self.show_password_check = tk.Checkbutton(
             password_frame,
-            text="Show",
+            text="Show Password",
             variable=self.show_password_var,
             command=self.toggle_password_visibility,
             bg=BG_COLOR,
@@ -314,7 +314,7 @@ class PasswordCracker:
         length_label = tk.Label(
             length_frame,
             text="Max Length:",
-            font=("Arial", 12),
+                     font=("Arial", 12),
             fg=TEXT_COLOR,
             bg=BG_COLOR
         )
@@ -327,7 +327,7 @@ class PasswordCracker:
             to=8,
             textvariable=self.max_length_var,
             width=5,
-            font=("Arial", 12),
+                     font=("Arial", 12),
             bg=SECONDARY_BG,
             fg=TEXT_COLOR,
             buttonbackground=ACCENT_COLOR
@@ -366,7 +366,7 @@ class PasswordCracker:
             font=("Arial", 12, "bold"),
             bg=BUTTON_RED,
             fg="white",
-            relief="flat",
+                     relief="flat",
             padx=10,
             pady=5,
             command=self.stop_cracking,
@@ -616,4 +616,4 @@ if __name__ == "__main__":
     
     root = tk.Tk()
     app = PasswordCracker(root)
-    root.mainloop()
+root.mainloop()
