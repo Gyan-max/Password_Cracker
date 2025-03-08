@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Cracker - User Manual</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1, h2, h3, h4 {
+            color: #1E3A5F;
+        }
+        
+        h1 {
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #1E3A5F;
+        }
+        
+        h2 {
+            margin-top: 30px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        code {
+            background-color: #f0f0f0;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        pre {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .tip {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        .note {
+            background-color: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #1E3A5F;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .toc {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+        
+        .toc li {
+            margin-bottom: 8px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Cracker - User Manual</h1>
+    
+    <div class="toc">
+        <h2>Table of Contents</h2>
+        <ul>
+            <li><a href="#introduction">1. Introduction</a></li>
+            <li><a href="#installation">2. Installation</a></li>
+            <li><a href="#getting-started">3. Getting Started</a></li>
+            <li><a href="#interface-overview">4. Interface Overview</a></li>
+            <li><a href="#cracking-methods">5. Cracking Methods</a>
+                <ul>
+                    <li><a href="#brute-force-attack">5.1 Brute Force Attack</a></li>
+                    <li><a href="#dictionary-attack">5.2 Dictionary Attack</a></li>
+                </ul>
+            </li>
+            <li><a href="#working-with-hashed-passwords">6. Working with Hashed Passwords</a></li>
+            <li><a href="#testing-tools">7. Testing Tools</a></li>
+            <li><a href="#performance-tips">8. Performance Tips</a></li>
+            <li><a href="#troubleshooting">9. Troubleshooting</a></li>
+            <li><a href="#security-and-legal">10. Security and Legal Considerations</a></li>
+        </ul>
+    </div>
+    
+    <h2 id="introduction">1. Introduction</h2>
+    <p>
+        Password Cracker is a Python-based application with a graphical user interface that allows you to test the strength of passwords using different cracking methods. This tool is designed for educational purposes to help understand password security concepts and demonstrate why strong passwords are important.
+    </p>
+    <p>The application supports:</p>
+    <ul>
+        <li>Brute force attacks (trying all possible character combinations)</li>
+        <li>Dictionary attacks (using wordlists)</li>
+        <li>Cracking both plaintext and hashed passwords (MD5, SHA1, SHA256, SHA512)</li>
+    </ul>
+    
+    <h2 id="installation">2. Installation</h2>
+    <h3>Requirements</h3>
+    <ul>
+        <li>Python 3.6 or higher</li>
+        <li>Tkinter (included with most Python installations)</li>
+    </ul>
+    
+    <h3>Setup</h3>
+    <ol>
+        <li>Clone or download the repository to your local machine</li>
+        <li>Navigate to the project directory</li>
+        <li>No additional packages are required as the application uses only standard Python libraries</li>
+    </ol>
+    
+    <h2 id="getting-started">3. Getting Started</h2>
+    <p>To launch the application:</p>
+    <pre><code>python main.py</code></pre>
+    
+    <p>For testing with sample passwords and hashes:</p>
+    <pre><code>python test_cracker.py</code></pre>
+    
+    <h2 id="interface-overview">4. Interface Overview</h2>
+    <p>The Password Cracker interface is divided into several sections:</p>
+    
+    <!-- <img src="img.png" alt="Password Cracker Interface"> -->
+    
+    <ol>
+        <li>
+            <strong>Target Password Input</strong>
+            <ul>
+                <li>Enter the password or hash you want to crack</li>
+                <li>Toggle visibility with the "Show" checkbox</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Hash Options</strong>
+            <ul>
+                <li>Check "Input is a hash" if you're entering a hash instead of plaintext</li>
+                <li>Select the hash type (MD5, SHA1, SHA256, SHA512)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Cracking Options</strong>
+            <ul>
+                <li>Choose between Brute Force and Dictionary Attack methods</li>
+                <li>Configure method-specific settings</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Control Buttons</strong>
+            <ul>
+                <li>Start Cracking: Begin the password cracking process</li>
+                <li>Stop: Halt an ongoing cracking process</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Progress and Results</strong>
+            <ul>
+                <li>Progress bar shows activity</li>
+                <li>Status messages display current operation</li>
+                <li>Results appear when a password is found</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h2 id="cracking-methods">5. Cracking Methods</h2>
+    
+    <h3 id="brute-force-attack">5.1 Brute Force Attack</h3>
+    <p>The brute force method tries all possible combinations of characters until it finds the correct password.</p>
+    
+    <h4>Configuration Options:</h4>
+    <ul>
+        <li>
+            <strong>Character Set</strong>: Select which types of characters to include
+            <ul>
+                <li>a-z: Lowercase letters</li>
+                <li>A-Z: Uppercase letters</li>
+                <li>0-9: Digits</li>
+                <li>Special: Punctuation and special characters</li>
+            </ul>
+        </li>
+        <li><strong>Max Length</strong>: The maximum password length to try (1-8)</li>
+    </ul>
+    
+    <h4>Best Used For:</h4>
+    <ul>
+        <li>Short passwords (1-4 characters)</li>
+        <li>When you have no idea what the password might be</li>
+        <li>Testing password complexity</li>
+    </ul>
+    
+    <div class="warning">
+        <strong>Limitations:</strong>
+        <ul>
+            <li>Exponentially slower as password length increases</li>
+            <li>Impractical for passwords longer than 6 characters</li>
+        </ul>
+    </div>
+    
+    <h3 id="dictionary-attack">5.2 Dictionary Attack</h3>
+    <p>The dictionary attack tries passwords from a wordlist file.</p>
+    
+    <h4>Configuration Options:</h4>
+    <ul>
+        <li><strong>Dictionary File</strong>: Select a text file containing potential passwords (one per line)</li>
+    </ul>
+    
+    <h4>Best Used For:</h4>
+    <ul>
+        <li>Common passwords</li>
+        <li>Longer passwords that might be dictionary words</li>
+        <li>When you suspect the password follows common patterns</li>
+    </ul>
+    
+    <div class="warning">
+        <strong>Limitations:</strong>
+        <ul>
+            <li>Limited to passwords in the dictionary file</li>
+            <li>Won't find complex passwords that aren't in the wordlist</li>
+        </ul>
+    </div>
+    
+    <h2 id="working-with-hashed-passwords">6. Working with Hashed Passwords</h2>
+    <p>Password Cracker can attempt to crack password hashes in addition to plaintext passwords.</p>
+    
+    <h3>Supported Hash Types:</h3>
+    <ul>
+        <li>MD5</li>
+        <li>SHA1</li>
+        <li>SHA256</li>
+        <li>SHA512</li>
+    </ul>
+    
+    <h3>How to Crack a Hash:</h3>
+    <ol>
+        <li>Enter the hash in the "Target Password" field</li>
+        <li>Check the "Input is a hash" checkbox</li>
+        <li>Select the correct hash type</li>
+        <li>Choose your cracking method</li>
+        <li>Click "Start Cracking"</li>
+    </ol>
+    
+    <div class="note">
+        <strong>Notes on Hash Cracking:</strong>
+        <ul>
+            <li>The application will hash each password attempt using the selected algorithm</li>
+            <li>Cracking hashes is more CPU-intensive than plaintext passwords</li>
+            <li>SHA256 and SHA512 hashes take significantly longer to crack than MD5 or SHA1</li>
+        </ul>
+    </div>
+    
+    <h2 id="testing-tools">7. Testing Tools</h2>
+    <p>The application includes a test harness (<code>test_cracker.py</code>) to help you test different passwords and hashes.</p>
+    
+    <h3>Features:</h3>
+    <ul>
+        <li>Test with plaintext passwords from <code>target_passwords.txt</code></li>
+        <li>Test with hashed passwords from <code>hashed_passwords.txt</code></li>
+        <li>Generate hashes from passwords for testing purposes</li>
+    </ul>
+    
+    <h3>Using the Test Harness:</h3>
+    <ol>
+        <li>Run <code>python test_cracker.py</code></li>
+        <li>
+            Select from the main menu:
+            <ul>
+                <li>Test with plaintext password</li>
+                <li>Test with hashed password</li>
+                <li>Generate hash from password</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h2 id="performance-tips">8. Performance Tips</h2>
+    
+    <div class="tip">
+        <strong>For Brute Force Attacks:</strong>
+        <ul>
+            <li>Limit the character sets to only what's necessary</li>
+            <li>Start with a small max length and increase gradually</li>
+            <li>Use dictionary attack for passwords longer than 4 characters</li>
+        </ul>
+    </div>
+    
+    <div class="tip">
+        <strong>For Dictionary Attacks:</strong>
+        <ul>
+            <li>Use smaller, targeted dictionaries when possible</li>
+            <li>Organize dictionaries by theme or complexity</li>
+        </ul>
+    </div>
+    
+    <div class="tip">
+        <strong>For Hash Cracking:</strong>
+        <ul>
+            <li>MD5 is the fastest to crack, followed by SHA1, SHA256, and SHA512</li>
+            <li>Consider using dictionary attack for hashes</li>
+        </ul>
+    </div>
+    
+    <div class="tip">
+        <strong>General Tips:</strong>
+        <ul>
+            <li>The application may become less responsive during intensive cracking operations</li>
+            <li>For very complex passwords, be prepared to let the application run for extended periods</li>
+            <li>Use the Stop button if the process is taking too long</li>
+        </ul>
+    </div>
+    
+    <h2 id="troubleshooting">9. Troubleshooting</h2>
+    
+    <h3>Common Issues:</h3>
+    
+    <h4>Application Freezes</h4>
+    <ul>
+        <li>The UI may become less responsive during intensive cracking operations</li>
+        <li>This is normal and the application is still working</li>
+        <li>For very complex passwords, consider using the Stop button and trying a different approach</li>
+    </ul>
+    
+    <h4>Dictionary Attack Not Working</h4>
+    <ul>
+        <li>Ensure the dictionary file exists and is readable</li>
+        <li>Check that each password is on a separate line</li>
+        <li>Verify the file encoding is compatible (UTF-8 recommended)</li>
+    </ul>
+    
+    <h4>Hash Not Being Cracked</h4>
+    <ul>
+        <li>Verify you've selected the correct hash type</li>
+        <li>Ensure the hash is entered correctly (no extra spaces)</li>
+        <li>Try a different cracking method or dictionary</li>
+    </ul>
+    
+    <h4>Slow Performance</h4>
+    <ul>
+        <li>Reduce the character set for brute force attacks</li>
+        <li>Use a smaller dictionary file</li>
+        <li>Limit the maximum password length</li>
+        <li>Consider that some hashes (SHA256, SHA512) are inherently slower to compute</li>
+    </ul>
+    
+    <h2 id="security-and-legal">10. Security and Legal Considerations</h2>
+    
+    <p>This Password Cracker application is intended for <strong>educational purposes only</strong>. It should be used responsibly and ethically.</p>
+    
+    <div class="warning">
+        <strong>Legal Warning:</strong>
+        <ul>
+            <li>Only use this tool on systems and passwords you own or have explicit permission to test</li>
+            <li>Unauthorized password cracking attempts may violate computer crime laws</li>
+            <li>The developers assume no liability for misuse of this software</li>
+        </ul>
+    </div>
+    
+    <h3>Security Best Practices:</h3>
+    <ul>
+        <li>Use this tool to test the strength of your own passwords</li>
+        <li>Create strong passwords that would be difficult to crack with this tool</li>
+        <li>Use different passwords for different services</li>
+        <li>Consider using a password manager for generating and storing complex passwords</li>
+    </ul>
+    
+    <div class="footer">
+        <p>This user manual is provided for educational purposes. The Password Cracker application is a demonstration tool and should be used responsibly.</p>
+    </div>
+</body>
+</html> 
