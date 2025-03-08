@@ -52,7 +52,9 @@ python test_cracker.py
 
 The Password Cracker interface is divided into several sections:
 
-![Password Cracker Interface](img.png)
+![Password Cracker Interface - Standard View](a.png)
+
+![Password Cracker Interface - Integrated Application](b.png)
 
 1. **Target Password Input**
    - Enter the password or hash you want to crack
